@@ -479,7 +479,7 @@ btI.grid(column=8,row=1)
 btO.grid(column=9,row=1)
 btP.grid(column=10,row=1)
 #========================
-
+#ppp
 #conjunto A-L
 btA = Button(botoesframeAL, text='A',width=3, font='Times 25', relief='raised', border=8, command=a)
 btS = Button(botoesframeAL, text='S',width=3, font='Times 25', relief='raised', border=8, command=s)
