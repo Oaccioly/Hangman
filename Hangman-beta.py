@@ -424,21 +424,21 @@ def m():
 #===============================
 
 janela = Tk()
-janela.geometry('1600x900')
+janela.geometry('1024x768')
 janela.title('Jogo da forca')
 janela.resizable(width=FALSE, height=FALSE)
 
-frame1 = Frame(janela, width=1600,height=900, bg='Black', relief='raised', border=8)
+frame1 = Frame(janela, width=1024,height=768, bg='Black', relief='raised', border=8)
 frame1.pack(side=TOP)
 
-titleframe = Frame(frame1, width= 600, height= 100, bg='Red')
-titleframe.place(x=700,y=0)
+titleframe = Frame(frame1, bg='Red')
+titleframe.place(x=400,y=0)
 
 hangman = Label(titleframe, text='HANGMAN - beta', font='Times 25', relief='raised', border='7' )
 hangman.pack(side=TOP)
 
 bonecoframe = Frame(frame1, width=300 , height=300, bg='Blue')
-bonecoframe.place(x=30, y=55)
+bonecoframe.place(x=20, y=60)
 
 photo = PhotoImage(file='Forca-imagens\Camada 1.png')
 labelphoto = Label(bonecoframe, image = photo)
@@ -446,13 +446,13 @@ labelphoto.pack()
 
 
 botoesframeQP = Frame(frame1, bg='red')
-botoesframeQP.place(x=300, y=600)
+botoesframeQP.place(x=200, y=560)
 
 botoesframeAL = Frame(frame1, bg='red')
-botoesframeAL.place(x=320, y=680)
+botoesframeAL.place(x=250, y=680)
 
 botoesframeZM = Frame(frame1, bg='Red')
-botoesframeZM.place(x=390, y=760)
+botoesframeZM.place(x=3, y=760)
 
 
 
