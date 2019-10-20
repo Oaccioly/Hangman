@@ -1,7 +1,6 @@
 from tkinter import *
 
 
-
 class LetrasORG:
     def __init__(self):
         self.conf = int
@@ -437,11 +436,11 @@ janela.resizable(width=FALSE, height=FALSE)
 frame1 = Frame(janela, width=1024,height=768, bg='Black', relief='raised', border=8)
 frame1.pack(side=TOP)
 
-# titleframe = Frame(frame1, bg='Red')
-# titleframe.place(x=400,y=0)
+titleframe = Frame(frame1, bg='Red')
+titleframe.place(x=700,y=10)
 
-# hangman = Label(titleframe, text='HANGMAN - beta', font='Times 25', relief='raised', border='7' )
-# hangman.pack(side=TOP)
+# tema = Label(titleframe, text='Tema', font='Times 25', relief='raised', border='7' )
+# tema.pack(side=TOP)
 
 bonecoframe = Frame(frame1, width=300 , height=300, bg='Blue')
 bonecoframe.place(x=20, y=0)
@@ -452,13 +451,13 @@ labelphoto.pack()
 
 
 botoesframeQP = Frame(frame1, bg='red')
-botoesframeQP.place(x=200, y=560)
+botoesframeQP.place(x=200, y=520)
 
 botoesframeAL = Frame(frame1, bg='red')
-botoesframeAL.place(x=250, y=640)
+botoesframeAL.place(x=250, y=600)
 
 botoesframeZM = Frame(frame1, bg='Red')
-botoesframeZM.place(x=300, y=720)
+botoesframeZM.place(x=300, y=680)
 
 
 
@@ -526,14 +525,15 @@ btN.grid(column=6,row=3)
 btM.grid(column=7,row=3)
 #=======================
     
-
+# def Autentificador():
+#     dados = Toplevel(janela, )
 
         
 
 
 
-#palavraS = input('Palavra secreta: ').strip().lower()
-palavraS = 'passiva'
+palavraS = input('Palavra secreta: ').strip().lower()
+# palavraS = '123'
 descobrir = []
 for x in range(len(palavraS)):
     descobrir += palavraS[x]
@@ -541,8 +541,9 @@ print(descobrir)
 label = LetrasORG()
 label.letras(conf=1, descobrir=descobrir)
 
-
+dados = Toplevel()
 mainloop()
+
 #
 #
 #
