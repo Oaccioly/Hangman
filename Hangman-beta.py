@@ -6,7 +6,7 @@ class LetrasORG:
     def __init__(self):
         self.conf = int
         self.letra = str
-        self.descobrir = list
+        # self.descobrir = list
         self.tentativas = 7
         self.verif = []
         self.quant = 0
@@ -16,7 +16,8 @@ class LetrasORG:
         print(f'\n<letra \033[31m{self.letra.upper()}\033[m recebida>')
         check = False
         mod = 12
-
+        
+        
         while check !=True:
 
             for x in range( 0, len( descobrir ) ):
@@ -120,9 +121,10 @@ class LetrasORG:
 
 
         print('<LINHA 118:> While finalizado')
-
-        print('Quant = ', self.quant)
-        print('len de descobrir = ', len(descobrir))
+        print('<Mod = ',mod)
+        print('<Tentativas = ', Tentativas)
+        print('<Quant = ', self.quant)
+        print('<len de descobrir = ', len(descobrir))
         Tentativas(tentativas = self.tentativas)
         Fim(quant=self.quant, descobrir=len(self.descobrir) )
 
@@ -135,7 +137,7 @@ class LetrasORG:
         if self.conf == 1:
             print('CONF 1')
             self.letrasframe = Frame( frame1, width=700, height=50, bg='white', border='9',relief='groove' )
-            self.letrasframe.place( x=350, y=460 )
+            self.letrasframe.place( x=270, y=410 )
             labels = len(descobrir)
             tents = 0
             quant = (len(descobrir))
@@ -253,14 +255,16 @@ class LetrasORG:
                     break
 
 
-            print(f'<LINHA 239:> While terminou em {tents}')
+            print(f'<LINHA 258:> While terminou em {tents}')
 
 def Tentativas(tentativas):
+    print(f'\n<Tentativas iniciado> == {tentativas}\n')
+    
     if tentativas == 6:
-        photo['file'] = 'Forca-imagens\Camada 1.png'
+        photo['file'] = 'Forca-imagens\Camada 2.png'
        # print(f'{} Deve ficar vermelho')
     if tentativas == 5:
-        photo['file'] = 'Forca-imagens\Camada 2.png'
+        photo['file'] = 'Forca-imagens\Camada 3.png'
        # print( f'{LetrasORG.letra} Deve ficar vermelho' )
     if tentativas == 4:
         photo['file'] = 'Forca-imagens\Camada 4.png'
@@ -278,8 +282,10 @@ def Tentativas(tentativas):
 
 def Fim(quant, descobrir):
 
-    if quant == descobrir:
+    if quant >= descobrir:
         print('\n\033[32mTodas as letras foram descobertas\033[m')
+    if quant <= descobrir:
+        print(f'<\033[31mAinda resta {descobrir - quant} letras a descobrir\033[m]> ')
 
 
 
@@ -431,14 +437,14 @@ janela.resizable(width=FALSE, height=FALSE)
 frame1 = Frame(janela, width=1024,height=768, bg='Black', relief='raised', border=8)
 frame1.pack(side=TOP)
 
-titleframe = Frame(frame1, bg='Red')
-titleframe.place(x=400,y=0)
+# titleframe = Frame(frame1, bg='Red')
+# titleframe.place(x=400,y=0)
 
-hangman = Label(titleframe, text='HANGMAN - beta', font='Times 25', relief='raised', border='7' )
-hangman.pack(side=TOP)
+# hangman = Label(titleframe, text='HANGMAN - beta', font='Times 25', relief='raised', border='7' )
+# hangman.pack(side=TOP)
 
 bonecoframe = Frame(frame1, width=300 , height=300, bg='Blue')
-bonecoframe.place(x=20, y=60)
+bonecoframe.place(x=20, y=0)
 
 photo = PhotoImage(file='Forca-imagens\Camada 1.png')
 labelphoto = Label(bonecoframe, image = photo)
@@ -449,10 +455,10 @@ botoesframeQP = Frame(frame1, bg='red')
 botoesframeQP.place(x=200, y=560)
 
 botoesframeAL = Frame(frame1, bg='red')
-botoesframeAL.place(x=250, y=680)
+botoesframeAL.place(x=250, y=640)
 
 botoesframeZM = Frame(frame1, bg='Red')
-botoesframeZM.place(x=3, y=760)
+botoesframeZM.place(x=300, y=720)
 
 
 
