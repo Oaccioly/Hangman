@@ -541,19 +541,18 @@ print(descobrir)
 label = LetrasORG()
 label.letras(conf=1, descobrir=descobrir)
 
-dados = Toplevel()
 mainloop()
 
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+
+
+
+
+
+
+
+
+
+
 # print('===' * 20)
 # print('Jogo da velha \n')
 # print('===' * 20)
