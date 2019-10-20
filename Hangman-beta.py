@@ -1,4 +1,6 @@
 from tkinter import *
+import time
+import tkinter.messagebox
 
 
 class LetrasORG:
@@ -525,21 +527,46 @@ btN.grid(column=6,row=3)
 btM.grid(column=7,row=3)
 #=======================
     
-# def Autentificador():
-#     dados = Toplevel(janela, )
-
+# class Autentificador:
+#     def __init__(self):
+#         self.dados = str
+        
+        
+        
+#     def Checar_letras():     
+        
+#         while True:
+#             dados = Toplevel(janela)
+#             entry_dados = Entry(dados)
+#             entry_dados.pack(side=RIGHT)
+#             label_info = Label(dados, text='Insira a palavra secreta')
+#             label_info.pack(side=LEFT)
+#             reg = dados.register(entry)
+#             entry_dados.config(validate="key", validatecommand=(reg, '%S'))
+# def entry(inp):
+#     if inp.isalpha():
+#         return True
+#     elif inp.isalpha():
+#         return True
+#     else:
+#         return False
+       
         
 
+            
+            
 
+# Autentificador.Checar_letras()
 
-palavraS = input('Palavra secreta: ').strip().lower()
+# palavraS = input('Palavra secreta: ').strip().lower()
 # palavraS = '123'
-descobrir = []
-for x in range(len(palavraS)):
-    descobrir += palavraS[x]
-print(descobrir)
-label = LetrasORG()
-label.letras(conf=1, descobrir=descobrir)
+# descobrir = []
+# for x in range(len(palavraS)):
+#     descobrir += palavraS[x]
+# print(descobrir)
+# label = LetrasORG()
+# label.letras(conf=1, descobrir=descobrir)
+
 
 mainloop()
 
