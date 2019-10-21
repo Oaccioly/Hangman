@@ -1,6 +1,6 @@
 from tkinter import *
-import time
-import tkinter.messagebox
+import pandas as pd
+from random import randint
 
 
 class LetrasORG:
@@ -11,7 +11,8 @@ class LetrasORG:
         self.tentativas = 7
         self.verif = []
         self.quant = 0
-
+        
+         
     def teste(self, letra):
         self.letra = letra
         print(f'\n<letra \033[31m{self.letra.upper()}\033[m recebida>')
@@ -21,8 +22,8 @@ class LetrasORG:
         
         while check !=True:
 
-            for x in range( 0, len( descobrir ) ):
-                if self.letra == descobrir[x]:
+            for x in range( 0, len( self.descobrir ) ):
+                if self.letra == self.descobrir[x]:
                     self.quant = self.quant + 1
                     mod = mod-1
                     check = True
@@ -125,7 +126,7 @@ class LetrasORG:
         print('<Mod = ',mod)
         print('<Tentativas = ', Tentativas)
         print('<Quant = ', self.quant)
-        print('<len de descobrir = ', len(descobrir))
+        print('<len de descobrir = ', len(self.descobrir))
         Tentativas(tentativas = self.tentativas)
         Fim(quant=self.quant, descobrir=len(self.descobrir) )
 
@@ -139,9 +140,9 @@ class LetrasORG:
             print('CONF 1')
             self.letrasframe = Frame( frame1, width=700, height=50, bg='white', border='9',relief='groove' )
             self.letrasframe.place( x=270, y=410 )
-            labels = len(descobrir)
+            labels = len(self.descobrir)
             tents = 0
-            quant = (len(descobrir))
+            quant = (len(self.descobrir))
             print(f'<LINHA 126:> a palavra secretra possui {len(descobrir)} letras')
             while True:
                 self.label0 = Label(self.letrasframe, text='__   ', font='arialblack 25')
@@ -249,7 +250,7 @@ class LetrasORG:
 
                 self.label13 = Label(self.letrasframe, text='__   ', font='arialblack 25')
                 self.label13.pack(side=LEFT)
-
+                 
                 quant += -1
                 tents += 1
                 if quant == 0:
@@ -258,6 +259,20 @@ class LetrasORG:
 
             print(f'<LINHA 258:> While terminou em {tents}')
 
+def Random_word():
+        planilha = pd.read_excel("Tabela\Palavras.xlsx")
+        x = randint(0, planilha.shape[0])
+        print('O tema é ',planilha['Tema'] [x])
+        print('A palavra secreta é ',planilha['Palavra_secreta'] [x])
+        palavraS = planilha['Palavra_secreta'] [x]
+        tema = planilha['Tema'] [x]
+        descobrir = []
+        for x in range(len(palavraS)):
+            descobrir += str(palavraS[x]).lower()
+        print(descobrir)
+        label.letras(conf=1, descobrir=descobrir)  
+        
+        
 def Tentativas(tentativas):
     print(f'\n<Tentativas iniciado> == {tentativas}\n')
     
@@ -526,37 +541,11 @@ btB.grid(column=5,row=3)
 btN.grid(column=6,row=3)
 btM.grid(column=7,row=3)
 #=======================
-    
-# class Autentificador:
-#     def __init__(self):
-#         self.dados = str
-        
-        
-        
-#     def Checar_letras():     
-        
-#         while True:
-#             dados = Toplevel(janela)
-#             entry_dados = Entry(dados)
-#             entry_dados.pack(side=RIGHT)
-#             label_info = Label(dados, text='Insira a palavra secreta')
-#             label_info.pack(side=LEFT)
-#             reg = dados.register(entry)
-#             entry_dados.config(validate="key", validatecommand=(reg, '%S'))
-# def entry(inp):
-#     if inp.isalpha():
-#         return True
-#     elif inp.isalpha():
-#         return True
-#     else:
-#         return False
-       
-        
 
-            
-            
 
-# Autentificador.Checar_letras()
+label = LetrasORG()
+Random_word()
+
 
 # palavraS = input('Palavra secreta: ').strip().lower()
 # palavraS = '123'
