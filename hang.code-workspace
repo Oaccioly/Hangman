@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "Hangman @ 7cc7185",
+			"uri": "gitlens://7cc7185/c:/xampp/Hangman?{\"path\":\"/c:/xampp/Hangman\",\"ref\":\"7cc7185e123ba447973348f5bed40af2a574e341\",\"repoPath\":\"c:/xampp/Hangman\"}"
+		}
+	],
+	"settings": {
+		"deepcode.review.results.hideInformationIssues": false
+	}
+}

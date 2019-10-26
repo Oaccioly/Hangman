@@ -1,6 +1,7 @@
 from tkinter import *
 import pandas as pd
 from random import randint
+from time import time
 from time import sleep
 
 
@@ -271,6 +272,7 @@ def Random_word():
             print('O tema é ',planilha['Tema'] [x])
             print('A palavra secreta é ',planilha['Palavra_secreta'] [x])
             palavraS = str(planilha['Palavra_secreta'] [x]).strip()
+            label.palavraS = palavraS
             tema['text'] = planilha['Tema'] [x]
             descobrir = []
             for x in range(len(palavraS)):
@@ -303,35 +305,36 @@ def Random_word():
                 print('Erro critico')
                 sleep(3)
                 quit()
+     
             
 def Tentativas(tentativas):
+    label.tentativas = tentativas
     print(f'\n<Tentativas iniciado> == {tentativas}\n')
     
     if tentativas == 6:
         photo['file'] = 'Forca-imagens\Camada 2.png'
- 
+    
         
     if tentativas == 5:
         photo['file'] = 'Forca-imagens\Camada 3.png'
-
+    
        
     if tentativas == 4:
         photo['file'] = 'Forca-imagens\Camada 4.png'
-      
+          
        
     if tentativas == 3:
         photo['file'] = 'Forca-imagens\Camada 5.png'
-       
+           
        
     if tentativas == 2:
         photo['file'] = 'Forca-imagens\Camada 6.png'
-        
+            
         
     if tentativas == 1:
         photo['file'] = 'Forca-imagens\Camada 7.png'
-        
-
-
+       
+            
 def Fim(quant, descobrir):
 
     if quant >= descobrir:
@@ -341,17 +344,15 @@ def Fim(quant, descobrir):
         label.quant = 0
         descobrir = -1
         bt_reset()
+        lastword = label.palavraS
+        
         Random_word()
+        
+        
+ 
     if quant <= descobrir:
         print(f'<\033[31mAinda resta {descobrir - quant} letras a descobrir\033[m]> ')
         
-
-
-
-
-
-
-
 
 #Command Botoes
 
@@ -738,6 +739,9 @@ def bt_vermelho(letra):
 
 def bt_reset(rst=1):
     print('\nBt reset iniciado\n')
+    word.place(x=720, y=100)
+    ultimaword.place(x=740, y=155)
+    ultimaword['text'] = label.palavraS
     if rst == 1:
         btQ['command'] = q
         btQ['bg'] = 'white'
@@ -854,7 +858,7 @@ frame1 = Frame(janela, width=1024,height=768, bg='Black', relief='raised', borde
 frame1.pack(side=TOP)
 
 titleframe = Frame(frame1, bg='Red')
-titleframe.place(x=650,y=10)
+titleframe.place(x=645,y=10)
 
 tema = Label(titleframe, text='Tema', font='Times 25', relief='raised', border='7' )
 tema.pack(side=LEFT)
@@ -865,7 +869,6 @@ bonecoframe.place(x=0, y=0)
 photo = PhotoImage(file='Forca-imagens\Camada 1.png')
 labelphoto = Label(bonecoframe, image = photo)
 labelphoto.pack()
-
 
 botoesframeQP = Frame(frame1, bg='red')
 botoesframeQP.place(x=180, y=500)
@@ -878,6 +881,9 @@ botoesframeZM.place(x=220, y=660)
 
 bt_skip = Button(janela, text='Skip', font='times 25', relief='raised', border=8, command=bt_skip)
 bt_skip.place(x=765, y=668)
+
+word = Label(janela, text ='Last word', font='times 25', relief='groove', border='8')
+ultimaword = Label(janela, text='Ultima palavra', font='times 25', relief='groove', border='8')
 
 
 #conjunto Q-P
@@ -948,65 +954,4 @@ btM.grid(column=7,row=3)
 label = LetrasORG()
 Random_word()
 
-
-# palavraS = input('Palavra secreta: ').strip().lower()
-# palavraS = '123'
-# descobrir = []
-# for x in range(len(palavraS)):
-#     descobrir += palavraS[x]
-# print(descobrir)
-# label = LetrasORG()
-# label.letras(conf=1, descobrir=descobrir)
-
-
 mainloop()
-
-
-
-
-
-
-
-
-
-
-
-# print('===' * 20)
-# print('Jogo da velha \n')
-# print('===' * 20)
-#
-# descobrir = ['p', 'a','s','s','i','v','a']
-# letrasd = []
-# tentativas = int(len(descobrir))
-# erros = []
-# verif = True
-# for x in range(0, len(descobrir)):
-#     letrasd.append(" _")
-# print(descobrir)
-# print(letrasd)
-# acetou = False
-#
-# while acetou == False or tentativas > 0:
-#     print('\nErros =', erros)
-#     letra = str(input('Enter a letter: ')).strip().lower()
-#     print(type(letra), 'letra ==',letra.isidentifier(), end='\n')
-#
-#     try:
-#         for x in range(0, len(letrasd)):
-#             if letra == erros[x]:
-#                 print(f'Voce ja falou {letra}')
-#                 break
-#     except:
-#         for x in range(0, len(descobrir)):
-#             if letra == descobrir[x]:
-#                 letrasd[x] = letra
-#                 print(letrasd)
-#                 verif = True
-#                 break
-#             else:
-#                 verif = False
-#         if verif == False:
-#             print(f'\n{letra.upper()} There is no secret word \n')
-#             erros += letra
-#             print(letrasd)
-
