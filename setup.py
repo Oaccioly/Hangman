@@ -7,15 +7,18 @@ from time import time
 from time import sleep
 
 
-
+base = None
+if sys.platform == "win32":
+    base = "Win32GUI"
+    
 executables = [
-        Executable("Hangman-beta.py", base=None)
+        Executable("Hangman-beta.py", base=base)
 ]
 
 buildOptions = dict(
         packages = [],
-        includes = ["tkinter","pandas", "time", "random"],
-        include_files = [],
+        includes = [],
+        include_files = ["Forca-imagens", "Tabela"],
         excludes = []
 )
 
